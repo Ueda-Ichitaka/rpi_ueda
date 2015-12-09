@@ -18,29 +18,23 @@ using std::max;
 using namespace rgb_matrix;
 
 /*
-class FFT : public ThreadedCanvasManipulator
-{
-	//new volumebars object, volumes array
-public:
-  FFT(Canvas *m) : ThreadedCanvasManipulator(m)
-  {
-	  //init volumebars && fft
-	  //VolumeBars bars = new Volumebars(*m);
-  }
-  
-  ~FFT()
-  {
-	  
-  }
-  
-  void Run()
-  {
-	  //update volumes array (do fft)
-	  //bars.updateBars(values);
-	  //usleep(500 * 1000);
-  }	
-}
-*/
+ * new model: volumebars: update gpio
+ *			  fft: grap audio input && calc values
+ *			  main: control
+ *			  		int main()
+ *			  		{
+ *			  			bars = new volumebars();
+ *			  			fft = new fft();
+ *			  		}
+ *
+ *			  		void loop()
+ *			  		{
+ *			  			int[] freq = fft.analyze();
+ *			  			bars.update(freq);
+ *			  		}
+ *
+ *
+ */
 
 class VolumeBars : public ThreadedCanvasManipulator
 {
