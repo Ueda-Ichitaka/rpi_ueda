@@ -1,6 +1,6 @@
 CXXFLAGS=-Wall -O3 -g
-OBJECTS=demo-main.o minimal-example.o text-example.o led-image-viewer.o test.o volumebars.o
-BINARIES=led-matrix minimal-example text-example test volumebars
+OBJECTS=demo-main.o minimal-example.o text-example.o led-image-viewer.o test.o volumebars.o graphicEqualizer.o
+BINARIES=led-matrix minimal-example text-example test volumebars graphicEqualizer
 ALL_BINARIES=$(BINARIES) led-image-viewer
 
 # Where our library resides. It is split between includes and the binary
@@ -31,6 +31,9 @@ test : test.o $(RGB_LIBRARY)
 
 volumebars : volumebars.o $(RGB_LIBRARY)
 	$(CXX) $(CXXFLAGS) volumebars.o -o $@ $(LDFLAGS)
+
+graphicEqualizer : graphicEqualizer.o $(RGB_LIBRARY)
+	$(CXX) $(CXXFLAGS) graphicEqualizer.o -o $@ $(LDFLAGS)
 
 text-example : text-example.o $(RGB_LIBRARY)
 	$(CXX) $(CXXFLAGS) text-example.o -o $@ $(LDFLAGS)
